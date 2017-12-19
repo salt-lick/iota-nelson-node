@@ -22,6 +22,11 @@ Clone the repository
 git clone https://github.com/ioiobzit/iota-nelson-node.git
 ```
 
+Enter the iota-nelson-node folder
+```
+cd iota-nelson-node
+```
+
 Run it with:
 ```
 docker-compose up -d
