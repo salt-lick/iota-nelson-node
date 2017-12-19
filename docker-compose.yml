@@ -7,7 +7,7 @@ services:
     container_name: iota
     restart: unless-stopped
     volumes:
-      - ./iota.ini:/iri/iota.ini:ro
+      - ./iota/iota.ini:/iri/iota.ini:ro
       - ./iota/ixi:/iri/ixi:rw
       - ./iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
