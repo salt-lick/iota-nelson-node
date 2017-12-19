@@ -11,11 +11,10 @@ services:
       - ./iota/ixi:/iri/ixi:rw
       - ./iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
-    expose:
-      - "14265"
     ports:
       - "14600:14600/udp"
       - "15600:15600/tcp"
+      - "14265:14265"
 
   nelson:
     image: romansemko/nelson:latest
