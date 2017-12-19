@@ -31,6 +31,17 @@ Run it with:
 ```
 docker-compose up -d
 ```
+### Check the logs
+
+Check the IRI logs with
+```
+docker logs iota
+```
+
+Check the Nelson logs with
+```
+docker logs nelson
+```
 
 ### Update when a new release of IRI or Nelson is published
 
