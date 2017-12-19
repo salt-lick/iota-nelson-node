@@ -12,8 +12,8 @@ These instructions will get you a copy of iri - the iota node with nelson up and
 
 ### Prerequisites
 
-It is expected that you have already installed docker, docker-compose
-and know how to start and use it.
+It is expected that you have already installed docker, docker-compose and know how to start and use it.
+Knowledge about your operating system (Windows, Linux, MacOS).
 
 ### Usage
 
@@ -58,7 +58,7 @@ docker-compose up -d
 
 ## More information
 
-Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files.
+Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files and further information about the node usage.
 
 ## Author
 
