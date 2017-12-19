@@ -33,6 +33,12 @@ This project is licensed under the ICS License - see the [LICENSE.md](LICENSE.md
 
 **Donations always welcome**:
 
+IOTA:
 ```
 CHQAYWPQUGQ9GANEWISFH99XBMTZAMHFFMPHWCLUZPFKJTFDFIJXFWCBISUTVGSNW9JI9QCOAHUHFUQC9SYVFXDQ9D
+```
+
+BTC:
+```
+1BFgqtMC2nfRxPRge5Db3gkYK7kDwWRF79
 ```
