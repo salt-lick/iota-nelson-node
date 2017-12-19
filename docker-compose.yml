@@ -14,8 +14,8 @@ services:
     expose:
       - "14265"
     ports:
-      - "14600:14600"
-      - "15600:15600"
+      - "14600:14600/udp"
+      - "15600:15600/tcp"
 
   nelson:
     image: romansemko/nelson:latest
@@ -25,3 +25,5 @@ services:
       - ./nelson/data:/data:rw
       - ./nelson/config.ini:/home/node/config.ini:ro
     command: "--config /home/node/config.ini"
+    ports:
+      - "18600:18600"
