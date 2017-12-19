@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+
+  iota:
+    image: iotaledger/iri:latest
+    container_name: iota
+    restart: unless-stopped
+    volumes:
+      - ./iota.ini:/iri/iota.ini:rw
+      - ./iota/ixi:/iri/ixi:rw
+      - ./iota/mainnetdb:/iri/mainnetdb:rw
+      - /etc/localtime:/etc/localtime:ro
+    expose:
+      - "15600"
+    ports:
+      - "14265:14265"
+
+  nelson:
+    image: romansemko/nelson
+    container_name: nelson
+    restart: unless-stopped    
+    volumes:
+      - ./nelson/data:/data:rw
+      - ./nelson/config.ini:/home/node/config.ini:ro
+    command: "--config /home/node/config.ini"
