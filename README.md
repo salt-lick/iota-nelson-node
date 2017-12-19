@@ -27,6 +27,19 @@ Run it with:
 docker-compose up -d
 ```
 
+### Update when a new release of IRI or Nelson is published
+
+Go to your iota-nelson-node folder and update the docker images
+```
+cd iota-nelson-node
+docker-compose pull
+```
+
+Run it with:
+```
+docker-compose up -d
+```
+
 ## More information
 
 Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files.
