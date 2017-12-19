@@ -18,3 +18,21 @@ and know how to start and use it.
 ## Help
 
 Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for help about their project.
+
+## Author
+
+* **Antonio Nardella** - (https://github.com/ioiobzit)
+
+## License
+
+This project is licensed under the ICS License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Contributing
+
+### Donations
+
+**Donations always welcome**:
+
+```
+CHQAYWPQUGQ9GANEWISFH99XBMTZAMHFFMPHWCLUZPFKJTFDFIJXFWCBISUTVGSNW9JI9QCOAHUHFUQC9SYVFXDQ9D
+```
