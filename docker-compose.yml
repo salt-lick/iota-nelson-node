@@ -18,7 +18,7 @@ services:
       - "15600:15600"
 
   nelson:
-    image: romansemko/nelson
+    image: romansemko/nelson:latest
     container_name: nelson
     restart: unless-stopped    
     volumes:
