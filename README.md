@@ -17,10 +17,12 @@ and know how to start and use it.
 
 ### Usage
 
-Clone the repository \\
-Edit iota.ini and add at least one trusted node \\
-Run it with: \\
+- Clone the repository
+- Edit iota.ini and add at least one trusted node
+- Run it with:
+```
 docker-compose up -d
+```
 
 ## More information
 
