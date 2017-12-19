@@ -15,6 +15,13 @@ These instructions will get you a copy of iri - the iota node with nelson up and
 It is expected that you have already installed docker, docker-compose
 and know how to start and use it.
 
+### Usage
+
+Clone the repository
+Edit iota.ini and add at least one trusted node
+Run it with:
+docker-compose up -d
+
 ## More information
 
 Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files.
