@@ -12,9 +12,10 @@ services:
       - ./iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
     expose:
-      - "15600"
+      - "14265"
     ports:
-      - "14265:14265"
+      - "14600:14600"
+      - "15600:15600"
 
   nelson:
     image: romansemko/nelson
