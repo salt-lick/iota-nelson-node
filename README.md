@@ -56,6 +56,16 @@ Run it with:
 docker-compose up -d
 ```
 
+### Warnings
+
+The ports setup in the docker-compose.yml file opens following container ports
+- 14600/udp
+- 15600/tcp
+- 14265
+- 18600 on 0.0.0.0 (all IP adresses, internal and external)
+- 16600 on 0.0.0.0 (all IP adresses, internal and external)
+
+Please assure yourself to set your firewall accordingly
 ## More information
 
 Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files and further information about the node usage.
