@@ -1,10 +1,6 @@
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an iota node enhanced through Nelson
-
-Nelson is a tool meant to be used with IOTA's IRI Node.
-It automatically manages neighbors of your full node, negotiating connections,
-finding new neighbors and protecting against bad actors.
+This repository contains the docker-compose file to get started with an iota node enhanced through Nelson.cli and Nelson.mon
 
 ## Getting Started
 
@@ -42,6 +38,12 @@ Check the Nelson logs with
 ```
 docker logs nelson
 ```
+### Open Nelson Monitor
+
+Open your browser to
+```
+http://DockerHostIP:3000
+```
 
 ### Update when a new release of IRI or Nelson is published
 
@@ -61,14 +63,15 @@ docker-compose up -d
 The ports setup in the docker-compose.yml file opens following container ports
 - 14600/udp
 - 15600/tcp
-- 14265
+- 14265 on 0.0.0.0 (all IP adresses, internal and external)
 - 18600 on 0.0.0.0 (all IP adresses, internal and external)
 - 16600 on 0.0.0.0 (all IP adresses, internal and external)
+- 3000  on 0.0.0.0 (all IP adresses, internal and external)
 
 Please assure yourself to set your firewall accordingly
 ## More information
 
-Please refer to the [iri project](https://github.com/iotaledger/iri) or [nelson project](https://github.com/SemkoDev/nelson.cli) for more information about the configuration files and further information about the node usage.
+Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri) or [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) for more information about the configuration files and further information about the node usage.
 
 ## Author
 
