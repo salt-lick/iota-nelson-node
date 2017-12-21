@@ -5,6 +5,7 @@ services:
   iota:
     image: iotaledger/iri:latest
     container_name: iota
+    hostname: iota
     restart: unless-stopped
     volumes:
       - ./iota/iota.ini:/iri/iota.ini:ro
@@ -16,14 +17,25 @@ services:
       - "15600:15600/tcp"
       - "14265:14265"
 
-  nelson:
+  nelson.cli:
     image: romansemko/nelson.cli:latest
-    container_name: nelson
+    container_name: nelson.cli
+    hostname: nelson.cli
     restart: unless-stopped    
     volumes:
       - ./nelson/data:/data:rw
       - ./nelson/config.ini:/home/node/config.ini:ro
+      - /etc/localtime:/etc/localtime:ro
     command: "--config /home/node/config.ini"
     ports:
       - "18600:18600"
       - "16600:16600"
+
+  nelson.mon:
+    image: ioiobzit/nelson.mon:0.0.2
+    container_name: nelson.mon
+    hostname: nelson.mon
+    restart: unless-stopped 
+    ports:
+      - "3000:3000"
+
