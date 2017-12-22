@@ -38,4 +38,11 @@ services:
     restart: unless-stopped 
     ports:
       - "3000:3000"
-
+      
+  nelson.gui:
+    image: romansemko/nelson.gui:latest
+    container_name: nelson.gui
+    hostname: nelson.gui
+    restart: unless-stopped 
+    ports:
+      - "5000:5000"
