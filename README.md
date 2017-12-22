@@ -38,6 +38,14 @@ Check the Nelson logs with
 ```
 docker logs nelson
 ```
+
+### Open Nelson GUI
+
+Open your browser to
+```
+http://DockerHostIP:5000/DockerHostIP/18600
+```
+
 ### Open Nelson Monitor
 
 Open your browser to
@@ -67,11 +75,12 @@ The ports setup in the docker-compose.yml file opens following container ports
 - 18600 on 0.0.0.0 (all IP adresses, internal and external)
 - 16600 on 0.0.0.0 (all IP adresses, internal and external)
 - 3000  on 0.0.0.0 (all IP adresses, internal and external)
+- 5000  on 0.0.0.0 (all IP adresses, internal and external)
 
 Please assure yourself to set your firewall accordingly
 ## More information
 
-Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri) or [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) for more information about the configuration files and further information about the node usage.
+Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri), [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli), CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui) or CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) for more information about the configuration files and further information about the node usage.
 
 ## Author
 
