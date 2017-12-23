@@ -1,6 +1,6 @@
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an iota node enhanced through Nelson.cli and Nelson.mon
+This repository contains the docker-compose file to get started with an iota node enhanced through Nelson.cli, Nelson.gui and Nelson.mon
 
 ## Getting Started
 
