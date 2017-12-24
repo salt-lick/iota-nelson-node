@@ -36,7 +36,7 @@ docker logs iota
 
 Check the Nelson logs with
 ```
-docker logs nelson
+docker logs nelson.cli
 ```
 
 ### Open Nelson GUI
