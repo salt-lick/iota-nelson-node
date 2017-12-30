@@ -99,7 +99,7 @@ Then be sure to adapt the **outgoingMax** ooption in nelson/config.ini to **3** 
 outgoingMax = 3
 ```
 
-As soon as the IRI/IOTA node is fully syncrhonized, please remove the swarm nodes (udp://88.99.249.250:41041 udp://94.156.128.15:14600 udp://185.181.8.149:14600) from your iota/iota.ini an without stopping your node with curl:
+As soon as the IRI/IOTA node is fully syncrhonized, please remove the swarm nodes (udp://88.99.249.250:41041 udp://94.156.128.15:14600 udp://185.181.8.149:14600) from your iota/iota.ini and without stopping your node with curl:
 ```
 curl http://DockerHostIP:14265 \
   -X POST \
