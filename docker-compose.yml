@@ -8,9 +8,9 @@ services:
     hostname: iota
     restart: unless-stopped
     volumes:
-      - ./iota/iota.ini:/iri/iota.ini:ro
-      - ./iota/ixi:/iri/ixi:rw
-      - ./iota/mainnetdb:/iri/mainnetdb:rw
+      - ./volumes/iota/iota.ini:/iri/iota.ini:ro
+      - ./volumes/iota/ixi:/iri/ixi:rw
+      - ./volumes/iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "14600:14600/udp"
@@ -21,10 +21,10 @@ services:
     image: romansemko/nelson.cli:latest
     container_name: nelson.cli
     hostname: nelson.cli
-    restart: unless-stopped    
+    restart: unless-stopped
     volumes:
-      - ./nelson/data:/data:rw
-      - ./nelson/config.ini:/home/node/config.ini:ro
+      - ./volumes/nelson/data:/data:rw
+      - ./volumes/nelson/config.ini:/home/node/config.ini:ro
       - /etc/localtime:/etc/localtime:ro
     command: "--config /home/node/config.ini"
     ports:
@@ -35,14 +35,76 @@ services:
     image: ioiobzit/nelson.mon:0.0.2
     container_name: nelson.mon
     hostname: nelson.mon
-    restart: unless-stopped 
+    restart: unless-stopped
     ports:
       - "3000:3000"
-      
+
   nelson.gui:
     image: romansemko/nelson.gui:latest
     container_name: nelson.gui
     hostname: nelson.gui
-    restart: unless-stopped 
+    restart: unless-stopped
     ports:
       - "5000:5000"
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    hostname: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./volumes/prometheus/data:/data
+      - ./volumes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/data"
+      - "--web.console.libraries=/usr/share/prometheus/console_libraries"
+      - "--web.console.templates=/usr/share/prometheus/consoles"
+    ports:
+      - "9090:9090"
+    links:
+      - iota-prom-exporter:iota-prom-exporter
+      - node-exporter:node-exporter
+
+  iota-prom-exporter:
+    image: ioiobzit/ipe:1.0.0
+    container_name: prom-iotaexp
+    hostname: iotape
+    restart: on-failure
+    ports:
+      - "9311:9311"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: prom-nodeexp
+    hostname: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+      - /etc/localtime:/etc/localtime:ro
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - "--collector.filesystem.ignored-mount-points"
+      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootf$
+    ports:
+       - "9100:9100"
+
+  grafana:
+    image: grafana/grafana
+    container_name: iota_grafana
+    restart: on-failure
+    ports:
+      - "8000:3000"
+    volumes:
+      - ./volumes/grafana/storage:/var/lib/grafana
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - GF_SERVER_PROTOCOL=http
+    links:
+      - prometheus:prometheus
