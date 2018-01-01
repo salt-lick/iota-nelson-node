@@ -75,14 +75,31 @@ http://DockerHostIP:3000
 
 ### Open Grafana Dashboard
 
+For the Grafana Dashboard to work, first we have to fix Prometheus.
+Please go to ./volumes/prometheus and execute the following command
+```
+sudo chown nobody. data
+```
+
+Restart the Prometheus container
+```
+docker-compose restart prometheus
+```
+
 Open your browser to
 ```
 http://DockerHostIP:8000
 ```
+
+Log in with:
+```
 Username: admin
 Password: admin
+```
 
-**PLEASE CHANGE YOUR PASSWORD**
+and open the IOTA Dashboard
+
+**PLEASE CHANGE YOUR ADMIN PASSWORD**
 
 ### Update when a new release of IRI or Nelson is published
 
@@ -142,7 +159,7 @@ Please assure yourself to set your firewall accordingly.
 ## More information
 
 Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri), [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli), [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) projects for more information about the configuration files and further information about the node usage.
-Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter) for issues with the dashboard.
+Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter) for more information about the dashboard and alerts.
 
 ## Author
 
