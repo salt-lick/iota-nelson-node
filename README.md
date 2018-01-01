@@ -75,7 +75,7 @@ http://DockerHostIP:3000
 
 ### Open Grafana Dashboard
 
-For the Grafana Dashboard to work, first we have to fix Prometheus.
+For the Grafana Dashboard to work, first we have to fix Prometheus. See [the documentation here](https://github.com/prometheus/prometheus/issues/2939).
 Please go to ./volumes/prometheus and execute the following command
 ```
 sudo chown nobody. data
