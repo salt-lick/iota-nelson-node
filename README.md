@@ -1,7 +1,10 @@
+# WARNING
+
+If you used a version of this file prior of the 1st january 2018 please move all folders/files to ./volumes/ before starting the docker-compose file! 
+
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project.
-It also includes a Grafana Dashboard enhanced through Prometheus.
+This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project. It also includes a Grafana Dashboard enhanced through Prometheus.
 
 ## Getting Started
 
@@ -21,7 +24,7 @@ git clone https://github.com/ioiobzit/iota-nelson-node.git
 
 #### Change the Nelson config.ini
 
-Edit the nelson/config.ini file to match your needs, for example the name
+Edit the volumes/nelson/config.ini file to match your needs, for example the name
 ```
 [nelson]
 name = CHANGE ME!
@@ -101,12 +104,12 @@ The iota.ini contains three swarm nodes, this nodes will add you back automatica
 If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your iota/iota.ini and nelson/config.ini accordingly.
 **Be aware that the ideal and maximum number of nodes so far is 7, no more, no less.**
 
-e.g. Your node is connected to **4** trusted IRI/IOTA nodes. The **NEIGHBORS** option in iota.ini will look something like this:
+e.g. Your node is connected to **4** trusted IRI/IOTA nodes. The **NEIGHBORS** option in volumes/iota/iota.ini will look something like this:
 ```
 NEIGHBORS =  udp://host1:41041 tcp://host2:15600 udp://host3:14600 tcp://host4:15600
 ```
 
-Then be sure to adapt the **outgoingMax** option in nelson/config.ini to **3** to get a maximum of **7** nodes
+Then be sure to adapt the **outgoingMax** option in volumes/nelson/config.ini to **3** to get a maximum of **7** nodes
 ```
 outgoingMax = 3
 ```
