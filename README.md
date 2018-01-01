@@ -1,6 +1,7 @@
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an iota node enhanced through Nelson.cli, Nelson.gui and Nelson.mon
+This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project.
+It also includes a Grafana Dashboard enhanced through Prometheus.
 
 ## Getting Started
 
@@ -69,6 +70,17 @@ Open your browser to
 http://DockerHostIP:3000
 ```
 
+### Open Grafana Dashboard
+
+Open your browser to
+```
+http://DockerHostIP:8000
+```
+Username: admin
+Password: admin
+
+**PLEASE CHANGE YOUR PASSWORD**
+
 ### Update when a new release of IRI or Nelson is published
 
 Go to your iota-nelson-node folder and update the docker images
@@ -113,19 +125,21 @@ and adapt your nelson/config.ini accordingly to your trusted iota/iota.ini confi
 ## Warnings
 
 The ports setup in the docker-compose.yml file opens following container ports
-- 14600/udp
-- 15600/tcp
-- 14265 on 0.0.0.0 (all IP adresses, internal and external)
-- 18600 on 0.0.0.0 (all IP adresses, internal and external)
-- 16600 on 0.0.0.0 (all IP adresses, internal and external)
-- 3000  on 0.0.0.0 (all IP adresses, internal and external)
-- 5000  on 0.0.0.0 (all IP adresses, internal and external)
+- 14600/udp - IOTA/IRI UDP connection port
+- 15600/tcp - IOTA/IRI TCP connection port
+- 14265 on 0.0.0.0 (all IP adresses, internal and external) - IOTA/IRI API port
+- 18600 on 0.0.0.0 (all IP adresses, internal and external) - Nelson API port
+- 16600 on 0.0.0.0 (all IP adresses, internal and external) - Nelson connection port
+- 3000  on 0.0.0.0 (all IP adresses, internal and external) - Nelson Monitor
+- 5000  on 0.0.0.0 (all IP adresses, internal and external) - Nelson GUI
+- 8000  on 0.0.0.0 (all IP adresses, internal and external) - Grafana Dashboard
 
 Please assure yourself to set your firewall accordingly.
 
 ## More information
 
 Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri), [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli), [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) projects for more information about the configuration files and further information about the node usage.
+Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter) for issues with the dashboard.
 
 ## Author
 
