@@ -1,6 +1,6 @@
 # WARNING
 
-If you used a version of this file prior of the 1st january 2018 please move all folders/files to ./volumes/ before starting the docker-compose file! 
+If you used a version of this file prior of the 1st january 2018 please move all iota/nelson folders/files to ./volumes/ before starting the docker-compose file! 
 
 # iota-nelson-node with docker-compose
 
