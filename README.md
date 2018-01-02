@@ -1,6 +1,6 @@
 # WARNING
 
-If you used a version of this file prior of the 1st january 2018 please move all iota/nelson folders/files to ./volumes/ before starting the docker-compose file! 
+If you used a version of this file prior of the 1st january 2018 please move all `iota/nelson` folders/files to `./volumes/` before starting the docker-compose file! 
 
 # iota-nelson-node with docker-compose
 
@@ -29,7 +29,7 @@ git clone https://github.com/ioiobzit/iota-nelson-node.git
 
 #### Change the Nelson config.ini
 
-Edit the volumes/nelson/config.ini file to match your needs, for example the name
+Edit the `./volumes/nelson/config.ini` file to match your needs, for example the name
 ```
 [nelson]
 name = CHANGE ME!
@@ -81,7 +81,7 @@ http://DockerHostIP:3000
 ### Open Grafana Dashboard
 
 For the Grafana Dashboard to work, first we have to fix Prometheus. See [the documentation here](https://github.com/prometheus/prometheus/issues/2939).
-Please go to ./volumes/prometheus and execute the following command
+Please go to `./volumes/prometheus` and execute the following command
 ```
 sudo chown nobody. data
 ```
@@ -123,20 +123,20 @@ docker-compose up -d
 
 The iota.ini contains three swarm nodes, this nodes will add you back automatically.
 
-If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your iota/iota.ini and nelson/config.ini accordingly.
+If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your `iota/iota.ini` and `nelson/config.ini` accordingly.
 **Be aware that the ideal and maximum number of nodes so far is 7, no more, no less.**
 
-e.g. Your node is connected to **4** trusted IRI/IOTA nodes. The **NEIGHBORS** option in volumes/iota/iota.ini will look something like this:
+e.g. Your node is connected to **4** trusted IRI/IOTA nodes. The `NEIGHBORS` option in `./volumes/iota/iota.ini` will look something like this:
 ```
 NEIGHBORS =  udp://host1:41041 tcp://host2:15600 udp://host3:14600 tcp://host4:15600
 ```
 
-Then be sure to adapt the **outgoingMax** option in volumes/nelson/config.ini to **3** to get a maximum of **7** nodes
+Then be sure to adapt the `outgoingMax` option in `./volumes/nelson/config.ini` to **3** to get a maximum of **7** nodes
 ```
 outgoingMax = 3
 ```
 
-As soon as the IRI/IOTA node is fully syncrhonized, please remove the swarm nodes (udp://88.99.249.250:41041 udp://94.156.128.15:14600 udp://185.181.8.149:14600) from your iota/iota.ini and without stopping your node with curl:
+As soon as the IRI/IOTA node is fully syncrhonized, please remove the swarm nodes `udp://88.99.249.250:41041 udp://94.156.128.15:14600 udp://185.181.8.149:14600` from your `./volumes/iota/iota.ini` and without stopping your node with curl:
 ```
 curl http://DockerHostIP:14265 \
   -X POST \
@@ -145,21 +145,27 @@ curl http://DockerHostIP:14265 \
   -d '{"command": "removeNeighbors", "uris": ["udp://88.99.249.250:41041", "udp://94.156.128.15:14600", "udp://185.181.8.149:14600"]}'
 ```
 
-and adapt your nelson/config.ini accordingly to your trusted iota/iota.ini config.
+and adapt your `./volumes/nelson/config.ini` accordingly to the number of trusted nodes  in the `./volumes/iota/iota.ini` config.
 
 ## Warnings
 
 The ports setup in the docker-compose.yml file opens following container ports
-- 14600/udp - IOTA/IRI UDP connection port
-- 15600/tcp - IOTA/IRI TCP connection port
-- 14265 on 0.0.0.0 (all IP adresses, internal and external) - IOTA/IRI API port
-- 18600 on 0.0.0.0 (all IP adresses, internal and external) - Nelson API port
-- 16600 on 0.0.0.0 (all IP adresses, internal and external) - Nelson connection port
-- 3000  on 0.0.0.0 (all IP adresses, internal and external) - Nelson Monitor
-- 5000  on 0.0.0.0 (all IP adresses, internal and external) - Nelson GUI
-- 8000  on 0.0.0.0 (all IP adresses, internal and external) - Grafana Dashboard
 
-Please assure yourself to set your firewall accordingly.
+Port/Type | Use 
+--- | ---
+14265 | IOTA/IRI API port
+14600/udp | IOTA/IRI UDP connection port
+15600/tcp | IOTA/IRI TCP connection port
+16600 | Nelson connection port
+18600 | Nelson API port
+3000 | Nelson Monitor
+5000 | Nelson GUI
+9090 | Prometheus
+9100 | Node Exporter
+9311 | IOTA Prometheus Export as of [export default ports](https://github.com/prometheus/prometheus/wiki/Default-port-allocations)
+8000 | Grafana Dashboard
+
+Please assure yourself to set your firewall accordingly, the ports are opened on 0.0.0.0 (all IP adresses, internal and external)
 
 ## More information
 
@@ -189,3 +195,7 @@ BTC:
 ```
 1BFgqtMC2nfRxPRge5Db3gkYK7kDwWRF79
 ```
+
+## TODO
+- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stalbe version](https://github.com/grafana/grafana/issues/5674)
+- [ ] [Update Grafana Deploy as soon as loading dashboards from file is available in stalbe version](https://github.com/grafana/grafana/pull/10052)
