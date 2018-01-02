@@ -4,7 +4,12 @@ If you used a version of this file prior of the 1st january 2018 please move all
 
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project. It also includes a Grafana Dashboard enhanced through Prometheus.
+This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project.
+![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/nelson.png)
+
+
+It also includes a Grafana Dashboard enhanced through Prometheus.
+![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/dashboard1.png)
 
 ## Getting Started
 
