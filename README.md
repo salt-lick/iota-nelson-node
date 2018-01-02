@@ -123,7 +123,7 @@ docker-compose up -d
 
 The iota.ini contains three swarm nodes, this nodes will add you back automatically.
 
-If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your `iota/iota.ini` and `nelson/config.ini` accordingly.
+If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your `./volumes/iota/iota.ini` and `./volumes/nelson/config.ini` accordingly.
 **Be aware that the ideal and maximum number of nodes so far is 7, no more, no less.**
 
 e.g. Your node is connected to **4** trusted IRI/IOTA nodes. The `NEIGHBORS` option in `./volumes/iota/iota.ini` will look something like this:
