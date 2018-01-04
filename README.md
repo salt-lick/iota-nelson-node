@@ -199,5 +199,5 @@ BTC:
 ```
 
 ## TODO
-- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stalbe version](https://github.com/grafana/grafana/issues/5674)
-- [ ] [Update Grafana Deploy as soon as loading dashboards from file is available in stalbe version](https://github.com/grafana/grafana/pull/10052)
+- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stable version](https://github.com/grafana/grafana/issues/5674)
+- [ ] [Update Grafana Deploy as soon as loading dashboards from file is available in stable version](https://github.com/grafana/grafana/pull/10052)
