@@ -112,6 +112,8 @@ Go to your iota-nelson-node folder and update the docker images
 ```
 cd iota-nelson-node
 docker-compose pull
+docker rm iota
+docker rm nelson.cli
 ```
 
 Run it with:
