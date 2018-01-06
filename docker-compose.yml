@@ -40,7 +40,7 @@ services:
       - "3000:3000"
 
   nelson.gui:
-    image: romansemko/nelson.gui:latest
+    image: ioiobzit/nelson.gui:0.1.5
     container_name: nelson.gui
     hostname: nelson.gui
     restart: unless-stopped
