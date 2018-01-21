@@ -16,6 +16,10 @@ services:
       - "14600:14600/udp"
       - "15600:15600/tcp"
       - "14265:14265"
+    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini"]
+# Use the following for 8GB
+#    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx8g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini"]
+
 
   nelson.cli:
     image: romansemko/nelson.cli:latest
@@ -30,6 +34,7 @@ services:
     ports:
       - "18600:18600"
       - "16600:16600"
+
 
   nelson.mon:
     image: ioiobzit/nelson.mon:0.0.2
