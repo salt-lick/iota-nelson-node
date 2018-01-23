@@ -179,11 +179,16 @@ Following API limits are now default:
 
 parameter | explaination 
 --- | ---
+interruptAttachingToTangle| To prevent users to do the PoW on your node
+attachToTangle| To prevent users to do the PoW on your node
+
+Following API limits are to be set as best practice (see iota.partners site or discussions on discord), but are not enabled as explained in the following table
+
+parameter | explaination 
+--- | ---
 getNeighbors|No one can see the data of your neighbors
 addNeighbors|No one can add neighbors to your node
 removeNeighbors|No one can remove neighbors from your node
-interruptAttachingToTangle| To prevent users to do the PoW on your node
-attachToTangle| To prevent users to do the PoW on your node
 setApiRateLimit|This will prevent external connections from being able to use this command
 
 ## More information
