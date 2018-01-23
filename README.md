@@ -153,7 +153,7 @@ and adapt your `./volumes/nelson/config.ini` accordingly to the number of truste
 
 ## Warnings
 
-#Ports
+# Ports
 
 The ports setup in the docker-compose.yml file opens following container ports
 
