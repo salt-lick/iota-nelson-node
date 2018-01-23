@@ -153,6 +153,8 @@ and adapt your `./volumes/nelson/config.ini` accordingly to the number of truste
 
 ## Warnings
 
+# Ports
+
 The ports setup in the docker-compose.yml file opens following container ports
 
 Port/Type | Use 
@@ -170,6 +172,19 @@ Port/Type | Use
 8000 | Grafana Dashboard
 
 Please assure yourself to set your firewall accordingly, the ports are opened on 0.0.0.0 (all IP adresses, internal and external)
+
+# Remote API limits
+
+Following API limits are now default:
+
+parameter | explaination 
+--- | ---
+getNeighbors|No one can see the data of your neighbors
+addNeighbors|No one can add neighbors to your node
+removeNeighbors|No one can remove neighbors from your node
+interruptAttachingToTangle| To prevent users to do the PoW on your node
+attachToTangle| To prevent users to do the PoW on your node
+setApiRateLimit|This will prevent external connections from being able to use this command
 
 ## More information
 
