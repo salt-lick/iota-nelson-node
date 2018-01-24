@@ -221,7 +221,7 @@ Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-pr
 
 ## Author
 
-* **Antonio Nardella** - (https://github.com/ioiobzit)
+* **Antonio Nardella** - [Twitter](https://twitter.com/antonionardella) - info at antonionardella dot it
 
 ## License
 
