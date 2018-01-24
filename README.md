@@ -1,3 +1,27 @@
+- [WARNING](#warning)
+- [iota-nelson-node with docker-compose](#iota-nelson-node-with-docker-compose)
+  * [Getting Started](#getting-started)
+    + [Prerequisites](#prerequisites)
+  * [Usage](#usage)
+    + [Clone the repository](#clone-the-repository)
+      - [Change the Nelson config.ini](#change-the-nelson-configini)
+    + [Start the node](#start-the-node)
+    + [Check the logs](#check-the-logs)
+    + [Open Nelson GUI](#open-nelson-gui)
+    + [Open Nelson Monitor](#open-nelson-monitor)
+    + [Open Grafana Dashboard](#open-grafana-dashboard)
+    + [Update when a new release of IRI or Nelson is published](#update-when-a-new-release-of-iri-or-nelson-is-published)
+  * [IRI Nodes information](#iri-nodes-information)
+  * [Warnings](#warnings)
+- [Ports](#ports)
+- [Remote API limits](#remote-api-limits)
+  * [More information](#more-information)
+  * [Author](#author)
+  * [License](#license)
+  * [Contributing](#contributing)
+    + [Donations](#donations)
+  * [TODO](#todo)
+
 # WARNING
 
 This docker-compose file is using the grafana alpha docker image https://github.com/grafana/grafana. Please be aware of possible bugs!  
