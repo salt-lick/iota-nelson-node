@@ -4,7 +4,7 @@ services:
 
   iota:
     image: iotaledger/iri:latest
-    container_name: iota
+    container_name: iota_iri
     hostname: iota
     restart: unless-stopped
     volumes:
@@ -27,7 +27,7 @@ services:
 
   nelson.cli:
     image: romansemko/nelson.cli:latest
-    container_name: nelson.cli
+    container_name: iota_nelson.cli
     hostname: nelson.cli
     restart: unless-stopped
     volumes:
@@ -42,7 +42,7 @@ services:
 
   nelson.mon:
     image: ioiobzit/nelson.mon:0.0.2
-    container_name: nelson.mon
+    container_name: iota_nelson.mon
     hostname: nelson.mon
     restart: unless-stopped
     ports:
@@ -50,7 +50,7 @@ services:
 
   nelson.gui:
     image: ioiobzit/nelson.gui:0.1.5
-    container_name: nelson.gui
+    container_name: iota_nelson.gui
     hostname: nelson.gui
     restart: unless-stopped
     ports:
@@ -58,7 +58,7 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus
+    container_name: iota_prometheus
     hostname: prometheus
     restart: unless-stopped
     volumes:
@@ -78,17 +78,18 @@ services:
 
   iota-prom-exporter:
     image: ioiobzit/ipe:1.0.6
-    container_name: prom-iotaexp
+    container_name: iota_prom-iotaexp
     hostname: iotape
     restart: on-failure
     ports:
       - "9311:9311"
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - ./volumes/ipe/config.js:/exporter/config.js
 
   node-exporter:
     image: prom/node-exporter:latest
-    container_name: prom-nodeexp
+    container_name: iota_prom-nodeexp
     hostname: node-exporter
     restart: unless-stopped
     volumes:
@@ -103,6 +104,16 @@ services:
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/var/lib/docker/aufs)($$|/)"
     ports:
        - "9100:9100"
+
+  zeromq:
+    image: zeromq/zeromq:latest
+    container_name: iota_zeromq
+    hostname: zeromq
+    restart: on-failure
+    ports:
+      - "5556:5556"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
 
   grafana:
     image: grafana/grafana
