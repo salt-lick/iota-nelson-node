@@ -167,7 +167,7 @@ docker-compose up -d
 
 The iota.ini contains three swarm nodes, this nodes will add you back automatically.
 
-If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your `./volumes/iota/iota.ini` and `./volumes/nelson/config.ini` accordingly.
+If you have other trusted nodes (e.g. you connected through [discord](https://discordapp.com/invite/fNGZXvh) or other trusted sources) be sure to adapt your `./volumes/iota/iota.ini` and `./volumes/nelson/config.ini` accordingly.
 **Be aware that the ideal and maximum number of nodes so far is 7, no more, no less.**
 ```
 Come-from-Beyond @here To ease the syncing issue reduce number of your neighbors. 7 should be the hard cap even if it's your mother asking to add her as the 8th neighbor. Use 3 neighbors if you are sure that they won't remove you without informing, use 5 if you are not sure in that. Thread in #nodesharingDec 4th at 9:54 AM
