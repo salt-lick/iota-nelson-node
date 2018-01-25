@@ -32,8 +32,21 @@ This repository contains the docker-compose file to get started with an IOTA/IRI
 ![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/nelson.png)
 
 
-It also includes a Grafana Dashboard enhanced through Prometheus.
+It also includes a Grafana Dashboard enhanced through Prometheus, with information about:
+* IRI node stats 
 ![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/dashboard1.png)
+
+* Server stats
+
+* [0mq](http://zeromq.org/) Metrics (local server)
+
+* Stresstest Stats (analytics.iotaledger.net)
+
+* Market Data in BTC/IOTA/EUR/USD
+
+* All neighbor stats
+
+* Stats by neighbors
 
 ## Getting Started
 
