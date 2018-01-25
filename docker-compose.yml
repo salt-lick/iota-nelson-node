@@ -107,7 +107,7 @@ nelson.cli:
        - "9100:9100"
        
   grafana:
-    image: grafana/grafana:master
+    image: grafana/grafana:latest
     container_name: iota_grafana
     restart: on-failure
     ports:
