@@ -77,7 +77,7 @@ services:
       - node-exporter:node-exporter
 
   iota-prom-exporter:
-    image: ioiobzit/ipe:1.0.5
+    image: ioiobzit/ipe:1.0.6
     container_name: prom-iotaexp
     hostname: iotape
     restart: on-failure
