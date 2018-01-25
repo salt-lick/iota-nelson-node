@@ -235,8 +235,13 @@ setApiRateLimit|This will prevent external connections from being able to use th
 
 ## More information
 
-Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri), [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli), [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) projects for more information about the configuration files and further information about the node usage.
-Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter) for more information about the dashboard and alerts.
+For more information about the combined projects please refer to the following github repositories:
+
+* [IRI - IOTA Node](https://github.com/iotaledger/iri)
+* [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli)
+* [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui)
+* [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon)
+* [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter)
 
 ## Author
 
