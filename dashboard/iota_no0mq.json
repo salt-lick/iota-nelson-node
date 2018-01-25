@@ -498,7 +498,7 @@
     },
     {
       "collapse": false,
-      "height": "600px",
+      "height": "250",
       "panels": [
         {
           "cacheTimeout": null,
@@ -519,7 +519,7 @@
             "thresholdLabels": false,
             "thresholdMarkers": true
           },
-          "height": "250px",
+          "height": "",
           "id": 81,
           "interval": null,
           "links": [],
@@ -581,7 +581,7 @@
           "dashes": false,
           "datasource": "Prometheus",
           "fill": 1,
-          "height": "250px",
+          "height": "",
           "id": 23,
           "legend": {
             "avg": false,
@@ -674,7 +674,7 @@
           "dashes": false,
           "datasource": null,
           "fill": 1,
-          "height": "250px",
+          "height": "",
           "id": 24,
           "legend": {
             "avg": false,
@@ -786,7 +786,7 @@
             "thresholdLabels": false,
             "thresholdMarkers": true
           },
-          "height": "250px",
+          "height": "",
           "id": 26,
           "interval": null,
           "links": [],
@@ -863,7 +863,7 @@
             "thresholdLabels": false,
             "thresholdMarkers": true
           },
-          "height": "250px",
+          "height": "",
           "id": 25,
           "interval": null,
           "links": [],
@@ -909,7 +909,7 @@
             }
           ],
           "thresholds": "10.20",
-          "title": "Available Memory",
+          "title": "Available Mem",
           "transparent": false,
           "type": "singlestat",
           "valueFontSize": "80%",
@@ -921,7 +921,19 @@
             }
           ],
           "valueName": "avg"
-        },
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": true,
+      "title": "Server Stats",
+      "titleSize": "h4"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [
         {
           "aliasColors": {},
           "bars": false,
@@ -952,7 +964,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 6,
           "stack": true,
           "steppedLine": false,
           "targets": [
@@ -1037,7 +1049,7 @@
           "renderer": "flot",
           "seriesOverrides": [],
           "spaceLength": 10,
-          "span": 4,
+          "span": 6,
           "stack": true,
           "steppedLine": false,
           "targets": [
@@ -1098,8 +1110,357 @@
       "repeat": null,
       "repeatIteration": null,
       "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": true,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "Prometheus",
+          "description": "Transactions Per Second vs Confirmed Transactions Per Second",
+          "fill": 1,
+          "id": 99,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rate(iota_zmq_seen_tx_count[3m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "TPS",
+              "refId": "A"
+            },
+            {
+              "expr": "rate(iota_zmq_confirmed_tx_count[3m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "CTPS",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "TPS vs CTPS",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 2,
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "Prometheus",
+          "fill": 2,
+          "id": 100,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "delta(iota_zmq_seen_tx_count[1m]) - delta(iota_zmq_txs_with_value_count[1m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Zero Value Txs",
+              "refId": "A"
+            },
+            {
+              "expr": "delta(iota_zmq_txs_with_value_count[1m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Value Txs",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Zero Value Txs vs Txs with Value",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "Prometheus",
+          "fill": 1,
+          "id": 101,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "iota_zmq_to_request",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "toRequest",
+              "refId": "D"
+            },
+            {
+              "expr": "iota_zmq_to_process",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "toProcess",
+              "refId": "A"
+            },
+            {
+              "expr": "iota_zmq_to_reply",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "toReply",
+              "refId": "B"
+            },
+            {
+              "expr": "iota_zmq_to_broadcast",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "toBroadcast",
+              "refId": "C"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Rstats",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fill": 2,
+          "id": 102,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "iota_zmq_total_transactions ",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Total Txs - 3 min",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Rstats - totalTransactions",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
       "showTitle": true,
-      "title": "Server Stats",
+      "title": "Zeromq Metrics (local server)",
       "titleSize": "h4"
     },
     {
@@ -1272,7 +1633,7 @@
       "repeatIteration": null,
       "repeatRowId": null,
       "showTitle": true,
-      "title": "Tangle Stats",
+      "title": "Stresstest Stats (analytics.iotaledger.net)",
       "titleSize": "h4"
     },
     {
@@ -2128,8 +2489,8 @@
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "109.152.84.131:14600",
-              "value": "109.152.84.131:14600"
+              "text": "104.199.17.56:14600",
+              "value": "104.199.17.56:14600"
             }
           },
           "seriesOverrides": [],
@@ -2232,13 +2593,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "163.172.24.225:16600",
-              "value": "163.172.24.225:16600"
+              "text": "109.152.84.131:14600",
+              "value": "109.152.84.131:14600"
             }
           },
           "seriesOverrides": [],
@@ -2341,13 +2702,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "173.212.220.14:14600",
-              "value": "173.212.220.14:14600"
+              "text": "118.190.13.189:14600",
+              "value": "118.190.13.189:14600"
             }
           },
           "seriesOverrides": [],
@@ -2450,13 +2811,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "173.249.14.172:14600",
-              "value": "173.249.14.172:14600"
+              "text": "163.172.24.225:16600",
+              "value": "163.172.24.225:16600"
             }
           },
           "seriesOverrides": [],
@@ -2559,13 +2920,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "173.249.23.191:14600",
-              "value": "173.249.23.191:14600"
+              "text": "165.227.172.30:14600",
+              "value": "165.227.172.30:14600"
             }
           },
           "seriesOverrides": [],
@@ -2668,13 +3029,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "178.238.226.121:14600",
-              "value": "178.238.226.121:14600"
+              "text": "173.212.220.14:14600",
+              "value": "173.212.220.14:14600"
             }
           },
           "seriesOverrides": [],
@@ -2777,13 +3138,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "18.218.71.44:14600",
-              "value": "18.218.71.44:14600"
+              "text": "173.249.16.219:14600",
+              "value": "173.249.16.219:14600"
             }
           },
           "seriesOverrides": [],
@@ -2886,13 +3247,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "185.181.8.149:14600",
-              "value": "185.181.8.149:14600"
+              "text": "173.249.17.170:14600",
+              "value": "173.249.17.170:14600"
             }
           },
           "seriesOverrides": [],
@@ -2995,13 +3356,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "185.207.106.172:14600",
-              "value": "185.207.106.172:14600"
+              "text": "173.249.17.22:14600",
+              "value": "173.249.17.22:14600"
             }
           },
           "seriesOverrides": [],
@@ -3104,13 +3465,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "192.164.200.35.bc.googleusercontent.com:14600",
-              "value": "192.164.200.35.bc.googleusercontent.com:14600"
+              "text": "173.249.19.73:14600",
+              "value": "173.249.19.73:14600"
             }
           },
           "seriesOverrides": [],
@@ -3213,13 +3574,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "213.161.244.86:14600",
-              "value": "213.161.244.86:14600"
+              "text": "185.181.8.149:14600",
+              "value": "185.181.8.149:14600"
             }
           },
           "seriesOverrides": [],
@@ -3322,13 +3683,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "35.200.164.192:14600",
-              "value": "35.200.164.192:14600"
+              "text": "35.226.170.195:14600",
+              "value": "35.226.170.195:14600"
             }
           },
           "seriesOverrides": [],
@@ -3431,13 +3792,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "35.226.161.156:14600",
-              "value": "35.226.161.156:14600"
+              "text": "37.120.175.164:14600",
+              "value": "37.120.175.164:14600"
             }
           },
           "seriesOverrides": [],
@@ -3540,13 +3901,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "51.15.38.239:14600",
-              "value": "51.15.38.239:14600"
+              "text": "52.210.25.182:14600",
+              "value": "52.210.25.182:14600"
             }
           },
           "seriesOverrides": [],
@@ -3649,13 +4010,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "51.15.51.193:15600",
-              "value": "51.15.51.193:15600"
+              "text": "52.47.121.95:14600",
+              "value": "52.47.121.95:14600"
             }
           },
           "seriesOverrides": [],
@@ -3758,13 +4119,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "52.47.121.95:14600",
-              "value": "52.47.121.95:14600"
+              "text": "62.101.252.10:14600",
+              "value": "62.101.252.10:14600"
             }
           },
           "seriesOverrides": [],
@@ -3867,13 +4228,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "62.101.252.10:14600",
-              "value": "62.101.252.10:14600"
+              "text": "76.120.36.6:15600",
+              "value": "76.120.36.6:15600"
             }
           },
           "seriesOverrides": [],
@@ -3976,7 +4337,7 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
@@ -4085,7 +4446,7 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
@@ -4194,13 +4555,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "86.56.238.247:14600",
-              "value": "86.56.238.247:14600"
+              "text": "78.46.252.81:14600",
+              "value": "78.46.252.81:14600"
             }
           },
           "seriesOverrides": [],
@@ -4303,13 +4664,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "88.99.249.250:41041",
-              "value": "88.99.249.250:41041"
+              "text": "86.56.238.247:14600",
+              "value": "86.56.238.247:14600"
             }
           },
           "seriesOverrides": [],
@@ -4412,13 +4773,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "92.220.175.137:14600",
-              "value": "92.220.175.137:14600"
+              "text": "88.99.249.250:41041",
+              "value": "88.99.249.250:41041"
             }
           },
           "seriesOverrides": [],
@@ -4521,13 +4882,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "94.156.128.15:14600",
-              "value": "94.156.128.15:14600"
+              "text": "91.194.91.10:14600",
+              "value": "91.194.91.10:14600"
             }
           },
           "seriesOverrides": [],
@@ -4630,13 +4991,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "c0AFC653E.dhcp.as2116.net:14600",
-              "value": "c0AFC653E.dhcp.as2116.net:14600"
+              "text": "94.156.128.15:14600",
+              "value": "94.156.128.15:14600"
             }
           },
           "seriesOverrides": [],
@@ -4739,13 +5100,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "iota.moz.cloud:16600",
-              "value": "iota.moz.cloud:16600"
+              "text": "c0AFC653E.dhcp.as2116.net:14600",
+              "value": "c0AFC653E.dhcp.as2116.net:14600"
             }
           },
           "seriesOverrides": [],
@@ -4848,13 +5209,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "iota.pkden.zapto.org:15600",
-              "value": "iota.pkden.zapto.org:15600"
+              "text": "iota.moz.cloud:16600",
+              "value": "iota.moz.cloud:16600"
             }
           },
           "seriesOverrides": [],
@@ -4957,13 +5318,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "iotanode.party:14600",
-              "value": "iotanode.party:14600"
+              "text": "iota.pkden.zapto.org:15600",
+              "value": "iota.pkden.zapto.org:15600"
             }
           },
           "seriesOverrides": [],
@@ -5066,13 +5427,13 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "mainnet.deviota.com:14600",
-              "value": "mainnet.deviota.com:14600"
+              "text": "iotanode.party:14600",
+              "value": "iotanode.party:14600"
             }
           },
           "seriesOverrides": [],
@@ -5175,7 +5536,7 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
@@ -5284,13 +5645,122 @@
           "points": false,
           "renderer": "flot",
           "repeat": null,
-          "repeatIteration": 1516864922761,
+          "repeatIteration": 1516898910736,
           "repeatPanelId": 10,
           "scopedVars": {
             "neighbor": {
               "selected": false,
-              "text": "v22017125398558017.goodsrv.de:14600",
-              "value": "v22017125398558017.goodsrv.de:14600"
+              "text": "static.81.252.46.78.clients.your-server.de:14600",
+              "value": "static.81.252.46.78.clients.your-server.de:14600"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "delta(iota_neighbors_new_transactions{id=~\"$neighbor\"}[1m])",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "New",
+              "refId": "A"
+            },
+            {
+              "expr": "delta(iota_neighbors_random_transactions{id=~\"$neighbor\"}[1m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Random",
+              "refId": "B"
+            },
+            {
+              "expr": "delta(iota_neighbors_all_transactions{id=~\"$neighbor\"}[1m])",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "All",
+              "refId": "C"
+            },
+            {
+              "expr": "delta(iota_neighbors_invalid_transactions{id=~\"$neighbor\"}[1m])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Invalid",
+              "refId": "D"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "$neighbor",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "Prometheus",
+          "fill": 1,
+          "id": 98,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "minSpan": 3,
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "repeat": null,
+          "repeatIteration": 1516898910736,
+          "repeatPanelId": 10,
+          "scopedVars": {
+            "neighbor": {
+              "selected": false,
+              "text": "vmi153892.contaboserver.net:14600",
+              "value": "vmi153892.contaboserver.net:14600"
             }
           },
           "seriesOverrides": [],
@@ -5487,5 +5957,5 @@
   },
   "timezone": "browser",
   "title": "IOTA",
-  "version": 6
+  "version": 9
 }
