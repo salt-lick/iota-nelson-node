@@ -52,7 +52,7 @@ It also includes a Grafana Dashboard enhanced through Prometheus, with informati
 ![all neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/allneighbors.png)
 
 * Stats by neighbors
-![neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/neighbor.png)
+![neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/neighbors.png)
 
 ## Getting Started
 
