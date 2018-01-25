@@ -26,8 +26,7 @@ services:
 # Use the following for 4GB rescan and revalidate
 #    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
 
-
-  nelson.cli:
+nelson.cli:
     image: romansemko/nelson.cli:latest
     container_name: iota_nelson.cli
     hostname: nelson.cli
@@ -108,7 +107,7 @@ services:
        - "9100:9100"
        
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:master
     container_name: iota_grafana
     restart: on-failure
     ports:

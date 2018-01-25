@@ -24,7 +24,7 @@
 
 # WARNING
 
-If you used a version of this file prior of the 1st january 2018 please move all `iota/nelson` folders/files to `./volumes/` before starting the docker-compose file! 
+This docker-compose file is using the grafana alpha docker image https://github.com/grafana/grafana. Please be aware of possible bugs!  
 
 # iota-nelson-node with docker-compose
 
@@ -268,5 +268,5 @@ BTC:
 ```
 
 ## TODO
-- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stable version](https://github.com/grafana/grafana/issues/5674)
+- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stable version](https://github.com/grafana/grafana/issues/5674) - https://github.com/grafana/grafana/pull/9504
 - [ ] [Update Grafana Deploy as soon as loading dashboards from file is available in stable version](https://github.com/grafana/grafana/pull/10052)
