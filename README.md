@@ -32,8 +32,27 @@ This repository contains the docker-compose file to get started with an IOTA/IRI
 ![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/nelson.png)
 
 
-It also includes a Grafana Dashboard enhanced through Prometheus.
-![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/dashboard1.png)
+It also includes a Grafana Dashboard enhanced through Prometheus, with information about:
+* IRI node stats 
+![iri stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/iri.png)
+
+* Server stats
+![server stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/server.png)
+
+* [0mq](http://zeromq.org/) Metrics (local server)
+![zmq stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/zmq.png)
+
+* Stresstest Stats (analytics.iotaledger.net)
+![stresstest stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/stresstest.png)
+
+* Market Data in BTC/IOTA/EUR/USD
+![market stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/market.png)
+
+* All neighbor stats
+![all neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/allneighbors.png)
+
+* Stats by neighbors
+![neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/neighbor.png)
 
 ## Getting Started
 
