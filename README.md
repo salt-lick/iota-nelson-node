@@ -32,8 +32,27 @@ This repository contains the docker-compose file to get started with an IOTA/IRI
 ![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/nelson.png)
 
 
-It also includes a Grafana Dashboard enhanced through Prometheus.
-![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/dashboard1.png)
+It also includes a Grafana Dashboard enhanced through Prometheus, with information about:
+* IRI node stats 
+![iri stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/iri.png)
+
+* Server stats
+![server stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/server.png)
+
+* [0mq](http://zeromq.org/) Metrics (local server)
+![zmq stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/zmq.png)
+
+* Stresstest Stats (analytics.iotaledger.net)
+![stresstest stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/stresstest.png)
+
+* Market Data in BTC/IOTA/EUR/USD
+![market stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/market.png)
+
+* All neighbor stats
+![all neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/allneighbors.png)
+
+* Stats by neighbors
+![neighbor stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/neighbors.png)
 
 ## Getting Started
 
@@ -148,7 +167,7 @@ docker-compose up -d
 
 The iota.ini contains three swarm nodes, this nodes will add you back automatically.
 
-If you have other trusted nodes (e.g. you connected through [slack](https://iotatangle.slack.com) or other trusted sources) be sure to adapt your `./volumes/iota/iota.ini` and `./volumes/nelson/config.ini` accordingly.
+If you have other trusted nodes (e.g. you connected through [discord](https://discordapp.com/invite/fNGZXvh) or other trusted sources) be sure to adapt your `./volumes/iota/iota.ini` and `./volumes/nelson/config.ini` accordingly.
 **Be aware that the ideal and maximum number of nodes so far is 7, no more, no less.**
 ```
 Come-from-Beyond @here To ease the syncing issue reduce number of your neighbors. 7 should be the hard cap even if it's your mother asking to add her as the 8th neighbor. Use 3 neighbors if you are sure that they won't remove you without informing, use 5 if you are not sure in that. Thread in #nodesharingDec 4th at 9:54 AM
@@ -216,8 +235,13 @@ setApiRateLimit|This will prevent external connections from being able to use th
 
 ## More information
 
-Please refer to the [IRI - IOTA Node](https://github.com/iotaledger/iri), [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli), [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui) or [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon) projects for more information about the configuration files and further information about the node usage.
-Please refer to [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter) for more information about the dashboard and alerts.
+For more information about the combined projects please refer to the following github repositories:
+
+* [IRI - IOTA Node](https://github.com/iotaledger/iri)
+* [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli)
+* [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui)
+* [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon)
+* [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter)
 
 ## Author
 

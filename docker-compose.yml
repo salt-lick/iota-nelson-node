@@ -4,7 +4,7 @@ services:
 
   iota:
     image: iotaledger/iri:latest
-    container_name: iota
+    container_name: iota_iri
     hostname: iota
     restart: unless-stopped
     volumes:
@@ -12,6 +12,8 @@ services:
       - ./volumes/iota/ixi:/iri/ixi:rw
       - ./volumes/iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
+    expose:
+      - "5556"
     ports:
       - "14600:14600/udp"
       - "15600:15600/tcp"
@@ -24,9 +26,9 @@ services:
 # Use the following for 4GB rescan and revalidate
 #    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
 
-  nelson.cli:
+nelson.cli:
     image: romansemko/nelson.cli:latest
-    container_name: nelson.cli
+    container_name: iota_nelson.cli
     hostname: nelson.cli
     restart: unless-stopped
     volumes:
@@ -38,9 +40,10 @@ services:
       - "18600:18600"
       - "16600:16600"
 
+
   nelson.mon:
     image: ioiobzit/nelson.mon:0.0.2
-    container_name: nelson.mon
+    container_name: iota_nelson.mon
     hostname: nelson.mon
     restart: unless-stopped
     ports:
@@ -48,7 +51,7 @@ services:
 
   nelson.gui:
     image: ioiobzit/nelson.gui:0.1.5
-    container_name: nelson.gui
+    container_name: iota_nelson.gui
     hostname: nelson.gui
     restart: unless-stopped
     ports:
@@ -56,7 +59,7 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus
+    container_name: iota_prometheus
     hostname: prometheus
     restart: unless-stopped
     volumes:
@@ -75,18 +78,19 @@ services:
       - node-exporter:node-exporter
 
   iota-prom-exporter:
-    image: ioiobzit/ipe:1.0.5
-    container_name: prom-iotaexp
+    image: bambash/iota-prom-exporter:latest
+    container_name: iota_prom-iotaexp
     hostname: iotape
     restart: on-failure
     ports:
       - "9311:9311"
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - ./volumes/ipe/config.js:/exporter/config.js
 
   node-exporter:
     image: prom/node-exporter:latest
-    container_name: prom-nodeexp
+    container_name: iota_prom-nodeexp
     hostname: node-exporter
     restart: unless-stopped
     volumes:
@@ -101,7 +105,7 @@ services:
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/var/lib/docker/aufs)($$|/)"
     ports:
        - "9100:9100"
-
+       
   grafana:
     image: grafana/grafana:master
     container_name: iota_grafana
