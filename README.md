@@ -24,7 +24,7 @@
 
 # WARNING
 
-This docker-compose file is using the grafana alpha docker image https://github.com/grafana/grafana. Please be aware of possible bugs!  
+I take no responsability about eventual damage!
 
 # iota-nelson-node with docker-compose
 
