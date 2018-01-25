@@ -12,6 +12,8 @@ services:
       - ./volumes/iota/ixi:/iri/ixi:rw
       - ./volumes/iota/mainnetdb:/iri/mainnetdb:rw
       - /etc/localtime:/etc/localtime:ro
+    expose:
+      - "5556"
     ports:
       - "14600:14600/udp"
       - "15600:15600/tcp"
@@ -104,17 +106,7 @@ services:
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/var/lib/docker/aufs)($$|/)"
     ports:
        - "9100:9100"
-
-  zeromq:
-    image: zeromq/zeromq:latest
-    container_name: iota_zeromq
-    hostname: zeromq
-    restart: on-failure
-    ports:
-      - "5556:5556"
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-
+       
   grafana:
     image: grafana/grafana
     container_name: iota_grafana
